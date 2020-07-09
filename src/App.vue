@@ -1,21 +1,21 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div>
+    <nav class="navbar navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">GitHub Repository Stat Visualizer</a>
+    </nav>
+    <div class="container-fluid">
+      <div class="row search-bar-row justify-content-center align-items-center">
+          <div class="col-6 search-bar-column">
+           Search bar goes here
+          </div>
+      </div>
+      <div class="row panels-row justify-content-around">
+        <div class="col-2 panels-col">Developers list goes here</div>
+        <div class="col-3 panels-col">First Chart goes here</div>
+        <div class="col-2 panels-col">Commit editing Form goes here</div>
+        <div class="col-3 panels-col">Second Chart goes here</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -30,31 +30,25 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import '~bootstrap/scss/bootstrap';
 
-h1, h2 {
-  font-weight: normal;
-}
+  .search-bar-column {
+    background-color:  lightblue;
+    height: 10vh;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  .panels-col {
+    background-color:  lightblue;
+  }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+  .search-bar-row {
+    height: 40vh;
+    border: 3px dotted blue;
+  }
 
-a {
-  color: #42b983;
-}
+  .panels-row {
+    border: 3px dotted red;
+    height: 50vh;
+  }
 </style>
