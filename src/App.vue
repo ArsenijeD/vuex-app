@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="root-container">
     <nav class="navbar navbar-dark bg-primary">
       <a class="navbar-brand" href="#">GitHub Repository Stat Visualizer</a>
     </nav>
@@ -8,12 +8,10 @@
           <app-search-bar></app-search-bar>
       </div>
       <div class="row panels-row justify-content-around">
-        <div class="col-2 panels-col">Developers list goes here</div>
-        <div class="col-3 panels-col">
+          <app-developers-list></app-developers-list>
           <app-pie-chart></app-pie-chart>
-        </div>
-        <div class="col-2 panels-col">Commit editing Form goes here</div>
-        <div class="col-3 panels-col">Second Chart goes here</div>
+          <app-commit-form></app-commit-form>
+          <app-commits-graph></app-commits-graph>
       </div>
     </div>
   </div>
@@ -23,6 +21,9 @@
 
   import SearchBar from './components/SearchBar.vue';
   import PieChart from './components/PieChart.vue';
+  import DevelopersList from './components/DevelopersList.vue'
+  import CommitForm from './components/CommitForm.vue';
+  import CommitsGraph from './components/CommitsGraph.vue';
 
   export default {
     name: 'app',
@@ -31,7 +32,10 @@
     },
     components: {
       appSearchBar: SearchBar,
-      appPieChart: PieChart
+      appPieChart: PieChart,
+      appDevelopersList: DevelopersList,
+      appCommitForm: CommitForm,
+      appCommitsGraph: CommitsGraph
     }
   }
 </script>
@@ -39,17 +43,18 @@
 <style lang="scss">
   @import '~bootstrap/scss/bootstrap';
 
-  .panels-col {
-    background-color:  lightblue;
+  .root-container {
+    height: 100vh;
   }
-
+  .container-fluid {
+    height: 90%;
+  }
   .search-bar-row {
-    height: 40vh;
+    height: 40%;
     border: 3px dotted blue;
   }
-
   .panels-row {
     border: 3px dotted red;
-    height: 50vh;
+    height: 60%;
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="col-6 search-bar-column">
+    <div class="col-6 search-bar-root-col">
         <div class="card search-bar-card row">
             <div class="card-body row">
                 <form class="form-inline container-fluid" @submit.prevent="onSubmit">
@@ -70,8 +70,6 @@
                     })
                     .finally(response => {
                         this.showProgress = false;
-                        console.log(this.getCommits());
-                        console.log(this.getDevelopers());
                     });
             }
         }
@@ -79,7 +77,7 @@
 </script>
 
 <style scoped>
-    .search-bar-column {
+    .search-bar-root-col {
         height: 40%;
     }
     .search-bar-card {

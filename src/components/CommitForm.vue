@@ -1,17 +1,17 @@
 <template>
-    <div class="col-3 pie-chart-root-col">
-        Hello from PieChart component.
+    <div class="col-2 commit-form-root-col">
+        Hello From CommitForm.
     </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+    
+}
 </script>
 
 <style scoped>
-    .pie-chart-root-col {
+    .commit-form-root-col {
         background-color:  lightblue;
         height: 100%;
     }
