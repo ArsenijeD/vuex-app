@@ -8,7 +8,7 @@
           <app-search-bar></app-search-bar>
       </div>
       <div class="row panels-row justify-content-around">
-          <app-developers-list></app-developers-list>
+          <app-developers-list v-if=""></app-developers-list>
           <app-pie-chart></app-pie-chart>
           <app-commit-form></app-commit-form>
           <app-commits-graph></app-commits-graph>

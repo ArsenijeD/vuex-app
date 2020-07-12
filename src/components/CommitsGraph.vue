@@ -1,6 +1,6 @@
 <template>
     <div class="col-3 commits-graph-root-col">
-        Hello from CommitsGraps component.
+        Hello from CommitsGraphs component.
     </div>
 </template>
 
