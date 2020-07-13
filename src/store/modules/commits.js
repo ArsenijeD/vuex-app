@@ -1,3 +1,5 @@
+//TODO: Break this module into separate files
+
 const state = {
     commits: []
 };

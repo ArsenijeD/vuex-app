@@ -38,11 +38,12 @@
         methods: {
             ...mapActions([
                 'setCommits',
-                'setDevelopers'
+                'setActiveDevelopers',
+                'setDataLoaded'
             ]),
             ...mapGetters([
                 'getCommits',
-                'getDevelopers'
+                'getActiveDevelopers'
             ]),
             onSubmit() {
                 this.showProgress = true;
@@ -63,7 +64,8 @@
                             }
                         });
                         this.setCommits(commits);
-                        this.setDevelopers(distinctDevelopers);
+                        this.setActiveDevelopers(distinctDevelopers);
+                        this.setDataLoaded(true);
                     })
                     .catch(error => {
                         //TODO: Handle this

@@ -3,25 +3,29 @@
         <div class="card text-left row developers-card-row border-primary">
             <h5 class="card-header bg-primary text-white">Developers List</h5>
             <div class="card-body">
-                <h6 class="card-title">Active:</h6>
-                <div class="row active-developers-row">
+                <h6 class="card-title" v-if="showActiveDevelopers">Active:</h6> 
+                <div class="row active-developers-row" v-if="showActiveDevelopers">
                     <div class="col-4">
-                        <a href="#" class="badge badge-primary" v-for="developer in activeDevelopers" :key=developer.name>{{ developer.name }}</a>
+                        <a href="#" class="badge badge-primary" @click="removeDeveloper(developer)" v-for="developer in getActiveDevelopers().slice(0,6)" :key=developer.name>{{ developer.name }}</a>
                     </div>
                     <div class="col-4">
+                         <a href="#" class="badge badge-primary" @click="removeDeveloper(developer)" v-for="developer in getActiveDevelopers().slice(6, 12)" :key=developer.name>{{ developer.name }}</a>
                     </div>
                     <div class="col-4">
+                         <a href="#" class="badge badge-primary" @click="removeDeveloper(developer)" v-for="developer in getActiveDevelopers().slice(12, 18)" :key=developer.name>{{ developer.name }}</a>
                     </div>
-                    
                 </div>
-                <hr>
-                <h6 class="card-title">Removed:</h6>
-                <div class="row removed-developers-row">
+                <hr v-if="showRemovedDevelopers && showActiveDevelopers">
+                <h6 class="card-title" v-if="showRemovedDevelopers">Removed:</h6>
+                <div class="row removed-developers-row" v-if="showRemovedDevelopers">
                     <div class="col-4">
+                        <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developer)" v-for="developer in getRemovedDevelopers().slice(0,6)" :key=developer.name>{{ developer.name }}</a>
                     </div>
                     <div class="col-4">
+                         <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developer)" v-for="developer in getRemovedDevelopers().slice(6, 12)" :key=developer.name>{{ developer.name }}</a>
                     </div>
                     <div class="col-4">
+                         <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developer)" v-for="developer in getRemovedDevelopers().slice(12, 18)" :key=developer.name>{{ developer.name }}</a>
                     </div>
                 </div>
             </div>
@@ -30,19 +34,26 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
+    import { mapGetters, mapActions } from 'vuex';
 
     export default {
         computed: {
-            activeDevelopers() {
-                return this.getDevelopers().filter(developer => { return developer.active });
+            showActiveDevelopers() {
+                return this.getActiveDevelopers().length !== 0;
             },
-            removedDevelopers() {
-                return this.getDevelopers().filter(developer => { return !developer.active });
+            showRemovedDevelopers() {
+                return this.getRemovedDevelopers().length !== 0;
             }
         },
         methods: {
-            ...mapGetters(['getDevelopers'])
+            ...mapGetters([
+                'getActiveDevelopers', 
+                'getRemovedDevelopers'
+            ]),
+            ...mapActions([
+                'removeDeveloper',
+                'setDeveloperAsActive'
+            ])
         }
     }
 </script>
