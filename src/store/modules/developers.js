@@ -11,6 +11,9 @@ const getters = {
     },
     getRemovedDevelopers: state => {
         return state.removedDevelopers;
+    },
+    getActiveDevelopersNames: state => {
+        return state.activeDevelopers.map(activeDeveloper => activeDeveloper.name);
     }
 };
 
