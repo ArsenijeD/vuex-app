@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import commits from './modules/commits';
-import developers from './modules/developers';
+import entities from './modules/entities';
 
 import * as getters from './getters';
 import * as mutations from './mutations';
@@ -17,7 +16,6 @@ export default new Vuex.Store({
     mutations,
     actions,
     modules: {
-        commits,
-        developers
+        entities,
     }
 });

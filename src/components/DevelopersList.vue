@@ -6,26 +6,26 @@
                 <h6 class="card-title" v-if="showActiveDevelopers">Active:</h6> 
                 <div class="row active-developers-row" v-if="showActiveDevelopers">
                     <div class="col-4">
-                        <a href="#" class="badge badge-primary" @click="removeDeveloper(developer)" v-for="developer in getActiveDevelopers().slice(0,6)" :key=developer.name>{{ developer.name }}</a>
+                        <a href="#" class="badge badge-primary" @click="setDeveloperAsRemoved(developersName)" v-for="developersName in getActiveDevelopersNames().slice(0, 6)" :key=developersName>{{ developersName }}</a>
                     </div>
                     <div class="col-4">
-                         <a href="#" class="badge badge-primary" @click="removeDeveloper(developer)" v-for="developer in getActiveDevelopers().slice(6, 12)" :key=developer.name>{{ developer.name }}</a>
+                         <a href="#" class="badge badge-primary" @click="setDeveloperAsRemoved(developersName)" v-for="developersName in getActiveDevelopersNames().slice(6, 12)" :key=developersName>{{ developersName }}</a>
                     </div>
                     <div class="col-4">
-                         <a href="#" class="badge badge-primary" @click="removeDeveloper(developer)" v-for="developer in getActiveDevelopers().slice(12, 18)" :key=developer.name>{{ developer.name }}</a>
+                         <a href="#" class="badge badge-primary" @click="setDeveloperAsRemoved(developersName)" v-for="developersName in getActiveDevelopersNames().slice(12, 18)" :key=developersName>{{ developersName }}</a>
                     </div>
                 </div>
                 <hr v-if="showRemovedDevelopers && showActiveDevelopers">
                 <h6 class="card-title" v-if="showRemovedDevelopers">Removed:</h6>
                 <div class="row removed-developers-row" v-if="showRemovedDevelopers">
                     <div class="col-4">
-                        <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developer)" v-for="developer in getRemovedDevelopers().slice(0,6)" :key=developer.name>{{ developer.name }}</a>
+                        <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developersName)" v-for="developersName in getRemovedDevelopersNames().slice(0, 6)" :key=developersName>{{ developersName }}</a>
                     </div>
                     <div class="col-4">
-                         <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developer)" v-for="developer in getRemovedDevelopers().slice(6, 12)" :key=developer.name>{{ developer.name }}</a>
+                         <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developersName)" v-for="developersName in getRemovedDevelopersNames().slice(6, 12)" :key=developersName>{{ developersName }}</a>
                     </div>
                     <div class="col-4">
-                         <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developer)" v-for="developer in getRemovedDevelopers().slice(12, 18)" :key=developer.name>{{ developer.name }}</a>
+                         <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developersName)" v-for="developersName in getRemovedDevelopersNames().slice(12, 18)" :key=developersName>{{ developersName }}</a>
                     </div>
                 </div>
             </div>
@@ -39,19 +39,19 @@
     export default {
         computed: {
             showActiveDevelopers() {
-                return this.getActiveDevelopers().length !== 0;
+                return this.getActiveDevelopersNames().length !== 0;
             },
             showRemovedDevelopers() {
-                return this.getRemovedDevelopers().length !== 0;
+                return this.getRemovedDevelopersNames().length !== 0;
             }
         },
         methods: {
             ...mapGetters([
-                'getActiveDevelopers', 
-                'getRemovedDevelopers'
+                'getActiveDevelopersNames', 
+                'getRemovedDevelopersNames'
             ]),
             ...mapActions([
-                'removeDeveloper',
+                'setDeveloperAsRemoved',
                 'setDeveloperAsActive'
             ])
         }

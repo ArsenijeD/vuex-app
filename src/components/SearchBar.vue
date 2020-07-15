@@ -37,15 +37,14 @@
         },
         methods: {
             ...mapActions([
-                'setCommits',
-                'setActiveDevelopers',
-                'setDataLoaded'
+                'setDataLoaded',
+                'initializeEntities',
             ]),
             ...mapGetters([
-                'getCommits',
-                'getActiveDevelopers'
+                'getCommitsPerDevelopers'
             ]),
             onSubmit() {
+                //TODO: Move this logic to action and use processStrategy function from normalizr library
                 this.showProgress = true;
                 axios.get('/repos/' + this.gitUsername + '/' + this.gitRepository + '/commits')
                     .then(response => {
@@ -63,9 +62,8 @@
                                 distinctDevelopers.push(developer);
                             }
                         });
-                        this.setCommits(commits);
-                        this.setActiveDevelopers(distinctDevelopers);
                         this.setDataLoaded(true);
+                        this.initializeEntities(commits);
                     })
                     .catch(error => {
                         //TODO: Handle this

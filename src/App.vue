@@ -24,7 +24,6 @@
   import DevelopersList from './components/DevelopersList.vue'
   import CommitForm from './components/CommitForm.vue';
   import CommitsGraph from './components/CommitsGraph.vue';
-
   import { mapGetters } from 'vuex';
 
   export default {
