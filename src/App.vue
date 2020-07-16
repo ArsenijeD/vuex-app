@@ -57,10 +57,10 @@
   }
   .search-bar-row {
     height: 40%;
-    border: 3px dotted blue;
+    // border: 3px dotted blue;
   }
   .panels-row {
-    border: 3px dotted red;
+    // border: 3px dotted red;
     height: 60%;
   }
 </style>

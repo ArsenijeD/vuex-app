@@ -48,20 +48,12 @@
                 this.showProgress = true;
                 axios.get('/repos/' + this.gitUsername + '/' + this.gitRepository + '/commits')
                     .then(response => {
-                        //TODO: Optimize this algorithm (current complexity is n^2)
                         let commits = [];
-                        let developers = [];
-                        let distinctDevelopers = [];
 
                         response.data.forEach(apiCommit => {
                             commits.push(new Commit(apiCommit));
-                            developers.push(new Developer(apiCommit.commit.author));
                         });
-                        developers.forEach(developer => {
-                            if(!distinctDevelopers.some(distinctDeveloper => {return distinctDeveloper.name === developer.name})) {
-                                distinctDevelopers.push(developer);
-                            }
-                        });
+                        
                         this.setDataLoaded(true);
                         this.initializeEntities(commits);
                     })

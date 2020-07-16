@@ -25,7 +25,7 @@ const getters = {
     },
     getCommitsPerActiveDevelopers: (state, getters) => {
         const activeDevelopers = getters.getActiveDevelopersNames;
-        let commitsPerActiveDevelopers = activeDevelopers.reduce((a,b)=> (a[b]=0, a), {});
+        let commitsPerActiveDevelopers = activeDevelopers.reduce((a, b)=> (a[b] = 0, a), {});
         activeDevelopers.forEach(activeDeveloper => {
             state.result.forEach(sha => {
                 if (state.entities.commits[sha].developer === activeDeveloper) {
@@ -34,11 +34,26 @@ const getters = {
             })
         });
         return commitsPerActiveDevelopers;
+    },
+    isCommitActive: state => (sha) => {
+        return !state.entities.commits[sha].removed;
+    },
+    isDeveloperActive: state => (name) => {
+        return !state.entities.developers[name].removed;
+    },
+    getActiveCommits: (state, getters) => {
+        return state.result.map(sha => {
+            if (getters.isCommitActive(sha) && getters.isDeveloperActive(state.entities.commits[sha].developer)) {
+                 return state.entities.commits[sha];
+            } 
+        });
     }
 };
 
 const mutations = {
     initializeEntities: (state, data) => {
+        console.log('RESULT');
+        console.log(normalize(data, commitCollectionSchema));
         const {entities, result} = normalize(data, commitCollectionSchema)
         state.entities = entities;
         state.result = result;
