@@ -1,7 +1,7 @@
 <template>
     <div class="col-3 commits-graph-root-col">
         <div class="card text-left row commits-graph-card-row border-primary">
-            <h5 class="card-header bg-primary text-white">Commits</h5>
+            <h5 class="card-header bg-primary text-white">Commits Graph</h5>
             <div class="card-body row justify-content-center align-items-center">
                 <div>
                     <d3-network :net-nodes="nodes" :net-links="links" :options="options" />
