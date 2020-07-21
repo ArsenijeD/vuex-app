@@ -23,7 +23,7 @@
 
 <script>
     import axios from 'axios';
-    import { mapActions, mapGetters } from 'vuex';
+    import { mapActions } from 'vuex';
     import Commit from './../model/commit';
     import Developer from './../model/developer';
 
@@ -38,10 +38,7 @@
         methods: {
             ...mapActions([
                 'setDataLoaded',
-                'initializeEntities',
-            ]),
-            ...mapGetters([
-                'getCommitsPerDevelopers'
+                'initializeEntities'
             ]),
             onSubmit() {
                 //TODO: Move this logic to action and use processStrategy function from normalizr library

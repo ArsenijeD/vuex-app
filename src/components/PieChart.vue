@@ -8,7 +8,7 @@
                         :height="450"
                         :values="commitsByPercentage"
                         :names="developers"
-                        :active-index="[ 0, 2 ]"
+                        :active-index="[0, 2]"
                         :active-event="'click'"
                         :padding-left="75"
                         :show-text-type="'outside'"

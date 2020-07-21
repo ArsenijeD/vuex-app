@@ -6,13 +6,13 @@
                 <h6 class="card-title" v-if="showActiveDevelopers">Active:</h6> 
                 <div class="row active-developers-row" v-if="showActiveDevelopers">
                     <div class="col-4">
-                        <a href="#" class="badge badge-primary" @click="setDeveloperAsRemoved(developersName)" v-for="developersName in getActiveDevelopersNames().slice(0, 6)" :key=developersName>{{ developersName }}</a>
+                        <a href="#" class="badge badge-primary" @click="removeDeveloper(developersName)" v-for="developersName in getActiveDevelopersNames().slice(0, 6)" :key=developersName>{{ developersName }}</a>
                     </div>
                     <div class="col-4">
-                         <a href="#" class="badge badge-primary" @click="setDeveloperAsRemoved(developersName)" v-for="developersName in getActiveDevelopersNames().slice(6, 12)" :key=developersName>{{ developersName }}</a>
+                         <a href="#" class="badge badge-primary" @click="removeDeveloper(developersName)" v-for="developersName in getActiveDevelopersNames().slice(6, 12)" :key=developersName>{{ developersName }}</a>
                     </div>
                     <div class="col-4">
-                         <a href="#" class="badge badge-primary" @click="setDeveloperAsRemoved(developersName)" v-for="developersName in getActiveDevelopersNames().slice(12, 18)" :key=developersName>{{ developersName }}</a>
+                         <a href="#" class="badge badge-primary" @click="removeDeveloper(developersName)" v-for="developersName in getActiveDevelopersNames().slice(12, 18)" :key=developersName>{{ developersName }}</a>
                     </div>
                 </div>
                 <hr v-if="showRemovedDevelopers && showActiveDevelopers">
@@ -48,12 +48,21 @@
         methods: {
             ...mapGetters([
                 'getActiveDevelopersNames', 
-                'getRemovedDevelopersNames'
+                'getRemovedDevelopersNames',
+                'getSelectedCommit'
             ]),
             ...mapActions([
                 'setDeveloperAsRemoved',
-                'setDeveloperAsActive'
-            ])
+                'setDeveloperAsActive',
+                'deselectCommit'
+            ]),
+            removeDeveloper(developersName) {
+                const selectedCommit = this.getSelectedCommit();
+                if(selectedCommit.developer === developersName) {
+                    this.deselectCommit(selectedCommit.sha);
+                }
+                this.setDeveloperAsRemoved(developersName);
+            }
         }
     }
 </script>

@@ -8,6 +8,7 @@ export default class Commit {
         this.date = apiCommit.commit.author.date;
         this.developer = new Developer(apiCommit.commit.author);
         this.removed = false;
+        this.selected = false;
     }
 }
 

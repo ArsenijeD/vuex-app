@@ -4,7 +4,7 @@
             <h5 class="card-header bg-primary text-white">Commits Graph</h5>
             <div class="card-body row justify-content-center align-items-center">
                 <div>
-                    <d3-network :net-nodes="nodes" :net-links="links" :options="options" />
+                    <d3-network :net-nodes="nodes" :net-links="links" :options="options" @node-click="onNodeClick" />
                 </div>
             </div>
         </div>
@@ -13,11 +13,11 @@
 
 <script>
     import D3Network from 'vue-d3-network';
-    import { mapGetters } from 'vuex';
+    import { mapGetters, mapActions } from 'vuex';
 
     export default {
         computed: {
-            nodes() {                
+            nodes() {    
                 return this.getActiveCommits().map(activeCommit => {
                     return {
                         id: activeCommit.sha,
@@ -29,7 +29,7 @@
                 let links = [];
                 this.getActiveCommits().forEach(activeCommit => {
                     activeCommit.parents.forEach(parent => {
-                        if(this.commitParentExist(parent)) {
+                        if(this.commitParentExists(parent)) {
                             links.push( 
                             {
                                 id: activeCommit.sha + '_' + parent,
@@ -47,8 +47,14 @@
             ...mapGetters([
                 'getActiveCommits'
             ]),
-            commitParentExist(sha) {
+            ...mapActions([
+                'setCommitAsSelected'
+            ]),
+            commitParentExists(sha) {
                 return this.getActiveCommits().filter(activeCommit => activeCommit.sha === sha).length !== 0;
+            },
+            onNodeClick(event, node) {
+                this.setCommitAsSelected(node.id);
             }
         },
         data() {
