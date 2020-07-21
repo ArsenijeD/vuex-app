@@ -10,7 +10,7 @@
                         <input placeholder="Enter Repository Name" type="text" class="form-control col-12" id="repository" v-model="gitRepository">
                     </div>
                     <div class="col-2 submit">
-                        <button type="submit" class="btn btn-primary col-12"> Check </button>
+                        <button type="submit" class="btn btn-primary col-12" :disabled="disableCheckButton"> Check </button>
                     </div>
                 </form>
             </div>
@@ -28,6 +28,11 @@
     import Developer from './../model/developer';
 
     export default {
+        computed: {
+            disableCheckButton() {
+                return this.gitUsername.trim() === '' || this.gitRepository.trim() === '';
+            }
+        },
         data() {
             return {
                 gitUsername: '',
