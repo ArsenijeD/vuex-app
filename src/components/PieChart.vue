@@ -41,10 +41,14 @@
             },
             commitsByPercentage() {
                 const commitsPerActiveDevelopers = Object.values(this.getCommitsPerActiveDevelopers());
-                const commitsSum = commitsPerActiveDevelopers.reduce((a, b) => a + b, 0);
-                return commitsPerActiveDevelopers.map(commitsPerDeveloper => {
+                const commitsSum = this.sumArray(commitsPerActiveDevelopers);
+                let commitsByPercentage = commitsPerActiveDevelopers.map(commitsPerDeveloper => {
                     return Math.round((commitsPerDeveloper * 100) / commitsSum);
                 });
+                //Logic below is added because some percents are lost while rounding
+                const percentageSum = this.sumArray(commitsByPercentage);
+                commitsByPercentage[0] += 100 - percentageSum;
+                return commitsByPercentage;
             }
         },
         data() {
@@ -55,6 +59,9 @@
                 'getActiveDevelopersNames',
                 'getCommitsPerActiveDevelopers'
             ]),
+            sumArray: array => {
+                return array.reduce((a, b) => a + b, 0);
+            },
             dataFormat: (a, b) => {
                 if(b) return b + "%";
                 return a;
