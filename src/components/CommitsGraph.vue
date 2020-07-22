@@ -18,10 +18,10 @@
     export default {
         computed: {
             nodes() {    
-                return this.getActiveCommits().map(activeCommit => {
+                return this.getActiveCommits().map((activeCommit, index) => {
                     return {
                         id: activeCommit.sha,
-                        name: activeCommit.message
+                        name: index + 1
                     }
                 });
             },
@@ -62,7 +62,12 @@
                 options: {
                     force: 1000,
                     nodeSize: 20,
-                    linkWidth: 2
+                    linkWidth: 2,
+                    size: {
+                        w: 430,
+                        h: 435
+                    },
+                    nodeLabels: true
                 }
             }
         },
@@ -77,6 +82,9 @@
 
     .commits-graph-root-col {
         height: 100%;
+    }
+    .card-body {
+        height: 80%;
     }
     .commits-graph-card-row {
         height: 100%;

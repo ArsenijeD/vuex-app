@@ -3,9 +3,9 @@
         <div class="card text-left row pie-chart-card-row border-primary">
             <h5 class="card-header bg-primary text-white">Developers Contribution</h5>
             <div class="card-body row justify-content-center align-items-top" v-if="showPieChart">
-                <graph-pie class="row justify-content-center pc"
-                        :width="450"
-                        :height="450"
+                <graph-pie class="row justify-content-center graph-pie"
+                        :width="430"
+                        :height="430"
                         :values="commitsByPercentage"
                         :names="developers"
                         :active-index="[0, 2]"
@@ -71,8 +71,11 @@
         height: 100%;
         /* border: 3px dotted blue; */
     }
-    .pc {
-        /* border: 3px dotted red; */
+    .graph-pie {
+        /* border: 3px dotted red;  */
+    }
+    .card-body {
+        height: 80%;
     }
     .progress-bar {
         width: 100%;
