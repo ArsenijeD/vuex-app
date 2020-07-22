@@ -1,7 +1,7 @@
 <template>
   <div class="root-container">
     <nav class="navbar navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">GitHub Repository Stat Visualizer</a>
+      <a class="navbar-brand" href="#">GitHub Commits Visualizer</a>
     </nav>
     <div class="container-fluid">
       <div class="row search-bar-row justify-content-center align-items-center">
