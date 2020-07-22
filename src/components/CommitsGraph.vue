@@ -18,7 +18,7 @@
     export default {
         computed: {
             nodes() {    
-                return this.getActiveCommits().map((activeCommit, index) => {
+                return this.getActiveCommits().reverse().map((activeCommit, index) => {
                     return {
                         id: activeCommit.sha,
                         name: index + 1
