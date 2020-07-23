@@ -6,7 +6,7 @@
 ## Features
 
 * Get last 30 commits from default branch for a specified repository
-* List all the developers that contributed and filter commits by selecting and deselecting them
+* List all the developers that contributed and filter commits by setting developer as active or inactive
 * Display developers contribution(%) by using Pie Chart (Donut)
 * Display all the fetched commits by using unidirected Graph
 * Manipulate with selected commit by changing its author and parent nodes
