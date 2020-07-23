@@ -6,26 +6,14 @@
                 <h6 class="card-title" v-if="showActiveDevelopers">Active:</h6> 
                 <div class="row active-developers-row" v-if="showActiveDevelopers">
                     <div class="col-4">
-                        <a href="#" class="badge badge-primary" @click="removeDeveloper(developersName)" v-for="developersName in getActiveDevelopersNames().slice(0, 6)" :key=developersName>{{ developersName }}</a>
-                    </div>
-                    <div class="col-4">
-                         <a href="#" class="badge badge-primary" @click="removeDeveloper(developersName)" v-for="developersName in getActiveDevelopersNames().slice(6, 12)" :key=developersName>{{ developersName }}</a>
-                    </div>
-                    <div class="col-4">
-                         <a href="#" class="badge badge-primary" @click="removeDeveloper(developersName)" v-for="developersName in getActiveDevelopersNames().slice(12, 18)" :key=developersName>{{ developersName }}</a>
+                        <a href="#" class="badge badge-primary" @click="removeDeveloper(developersName)" v-for="developersName in getActiveDevelopersNames()" :key=developersName>{{ developersName }}</a>
                     </div>
                 </div>
                 <hr v-if="showRemovedDevelopers && showActiveDevelopers">
                 <h6 class="card-title" v-if="showRemovedDevelopers">Removed:</h6>
                 <div class="row removed-developers-row" v-if="showRemovedDevelopers">
                     <div class="col-4">
-                        <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developersName)" v-for="developersName in getRemovedDevelopersNames().slice(0, 6)" :key=developersName>{{ developersName }}</a>
-                    </div>
-                    <div class="col-4">
-                         <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developersName)" v-for="developersName in getRemovedDevelopersNames().slice(6, 12)" :key=developersName>{{ developersName }}</a>
-                    </div>
-                    <div class="col-4">
-                         <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developersName)" v-for="developersName in getRemovedDevelopersNames().slice(12, 18)" :key=developersName>{{ developersName }}</a>
+                        <a href="#" class="badge badge-secondary" @click="setDeveloperAsActive(developersName)" v-for="developersName in getRemovedDevelopersNames()" :key=developersName>{{ developersName }}</a>
                     </div>
                 </div>
             </div>
@@ -78,10 +66,14 @@
     .active-developers-row {
         height: 34%;
         /* border: 3px dotted blue; */
+        overflow-y: auto;
+        margin-right: 2%;
     }
     .removed-developers-row {
         height: 35%;
         /* border: 3px dotted blue; */
+        overflow-y: auto;
+        margin-right: 2%;
     }
     .card-title {
         height: 9%;
