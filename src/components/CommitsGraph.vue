@@ -88,6 +88,5 @@
     }
     .commits-graph-card-row {
         height: 100%;
-        /* border: 3px dotted blue; */
     }
 </style>

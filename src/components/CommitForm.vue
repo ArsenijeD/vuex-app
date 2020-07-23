@@ -92,24 +92,20 @@
 
 <style  scoped>
     .commit-form-root-col {
-        /* background-color:  lightblue; */
         height: 100%;
     }
     .commit-form-card-row {
         height: 100%;
-        /* border: 3px dotted blue; */
     }
     .card-body {
         height: 80%;
     }
     .commit-form {
         height: 100%;
-        /* border: blue dotted 3px; */
     }
     .list-groups-row {
         height: 70%;
         width: 100%;
-        /* border: 3px dotted blue; */
     }
     .parents-list {
         height: 100%;
@@ -119,21 +115,16 @@
     }
     .non-parents-list {
         height: 100%;
-        /* flex: 1 1 0;  */
-        /* display: flex; */
-        /* flex-direction: column; */
         overflow-y: auto;
         padding-right: 0;
         margin-left: 2%;
     }
     .parents-group {
         height: 25%;
-        /* border: red dotted 3px; */
     }
     .button-div {
         width: 100%;
         height: 10%;
-        /* border: red dotted 3px; */
         margin-left: 1%;
     }
     .progress-bar {

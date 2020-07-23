@@ -3,7 +3,7 @@
         <div class="card text-left row pie-chart-card-row border-primary">
             <h5 class="card-header bg-primary text-white">Developers Contribution</h5>
             <div class="card-body row justify-content-center align-items-top" v-if="showPieChart">
-                <graph-pie class="row justify-content-center graph-pie"
+                <graph-pie class="row justify-content-center"
                         :width="430"
                         :height="430"
                         :values="commitsByPercentage"
@@ -76,10 +76,6 @@
     }
     .pie-chart-card-row {
         height: 100%;
-        /* border: 3px dotted blue; */
-    }
-    .graph-pie {
-        /* border: 3px dotted red;  */
     }
     .card-body {
         height: 80%;

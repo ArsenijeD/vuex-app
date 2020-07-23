@@ -61,22 +61,18 @@
     }
     .developers-card-row {
         height: 100%;
-        /* border: 3px dotted blue; */
     }
     .active-developers-row {
         height: 34%;
-        /* border: 3px dotted blue; */
         overflow-y: auto;
         margin-right: 2%;
     }
     .removed-developers-row {
         height: 35%;
-        /* border: 3px dotted blue; */
         overflow-y: auto;
         margin-right: 2%;
     }
     .card-title {
         height: 9%;
-        /* border: 3px dotted red; */
     }
 </style>
