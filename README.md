@@ -1,4 +1,4 @@
-# Redux-app
+# Vuex-app
 
   The purpose of this Vue.js application is to show the use of vuex library for better state management. 
   The application retrieves data from a specific GitHub repository and allows their visualization and manipulation.
