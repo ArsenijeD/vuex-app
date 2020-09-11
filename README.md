@@ -18,7 +18,7 @@
   
 ## Install & Run
 
-  Use the node package manager [npm](https://www.npmjs.com/) to install and run Ngrx-app.
+  Use the node package manager [npm](https://www.npmjs.com/) to install and run Vuex-app.
 
   ```bash
   npm install
