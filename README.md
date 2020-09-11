@@ -37,11 +37,11 @@
 ## Demo
   
   1. Getting data from GitHub, displaying and filtering by developers
-  <kbd>![alt text](/src/assets/ngrx-app_dev_filter.gif)
+  <kbd>![alt text](/src/assets/vuex-app_dev_filter.gif)
   
   
   2. Manipulating with commits (selecting, changing author and parent commits, deleting)
-  <kbd>![alt text](/src/assets/ngrx-app_commits_man.gif)
+  <kbd>![alt text](/src/assets/vuex-app_commits_man.gif)
   
   *note: while changing author, developer is selected from the dropdown, but it is not visible on the gif
 
