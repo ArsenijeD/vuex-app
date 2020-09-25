@@ -40,8 +40,8 @@
                 'getSelectedCommit'
             ]),
             ...mapActions([
-                'setDeveloperAsRemoved',
                 'setDeveloperAsActive',
+                'setDeveloperAsRemoved',
                 'deselectCommit'
             ]),
             removeDeveloper(developersName) {
